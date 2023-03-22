@@ -20,6 +20,9 @@ public class Position {
     private String name;
 
     @Column
+    private boolean active;
+
+    @Column
     private String createdBy;
 
     @Column
@@ -29,6 +32,7 @@ public class Position {
         PositionDTO positionDTO = new PositionDTO();
         positionDTO.setId(this.getId());
         positionDTO.setName(this.getName());
+        positionDTO.setActive(this.active);
         positionDTO.setCreatedAt(this.getCreatedAt());
         positionDTO.setCreatedBy(this.getCreatedBy());
 

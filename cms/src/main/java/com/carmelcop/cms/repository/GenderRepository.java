@@ -1,6 +1,6 @@
 package com.carmelcop.cms.repository;
 
-import com.carmelcop.cms.model.Position;
+import com.carmelcop.cms.model.Gender;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface PositionRepository extends JpaRepository<Position, UUID> {
+public interface GenderRepository extends JpaRepository<Gender, UUID> {
 
-
-    List<Position> findPositionByActiveIsTrue();
+    List<Gender> findAllByActiveTrue();
 }

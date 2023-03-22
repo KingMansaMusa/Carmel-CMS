@@ -14,6 +14,8 @@ public class PositionDTO {
 
     private UUID id;
     private String name;
+
+    private boolean active;
     private String createdBy;
     private ZonedDateTime createdAt;
 
@@ -21,6 +23,7 @@ public class PositionDTO {
         Position position = new Position();
         position.setId(this.id);
         position.setName(this.name);
+        position.setActive(this.active);
         position.setCreatedAt(this.createdAt);
         position.setCreatedBy(this.createdBy);
 

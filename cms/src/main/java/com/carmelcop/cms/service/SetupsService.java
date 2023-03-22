@@ -1,8 +1,8 @@
 package com.carmelcop.cms.service;
 
+import com.carmelcop.cms.dto.GenderDTO;
 import com.carmelcop.cms.dto.PositionDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,4 +16,20 @@ public interface SetupsService {
     ResponseEntity updatePosition(UUID id, PositionDTO positionDTO);
 
     ResponseEntity getPositionById(UUID id);
+
+    List<PositionDTO> getActivePositions();
+
+    ResponseEntity setPositionActiveById(UUID id, boolean active);
+
+    List<GenderDTO> getAllGenders();
+
+    ResponseEntity saveGender(GenderDTO genderDTO);
+
+    List<GenderDTO> getActiveGenders();
+
+    ResponseEntity updateGender(UUID id, GenderDTO genderDTO);
+
+    ResponseEntity getGenderById(UUID id);
+
+    ResponseEntity setGenderActiveById(UUID id, boolean active);
 }
