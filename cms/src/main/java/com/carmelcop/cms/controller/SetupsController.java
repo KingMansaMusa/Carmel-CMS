@@ -1,7 +1,9 @@
 package com.carmelcop.cms.controller;
 
 import com.carmelcop.cms.dto.GenderDTO;
+import com.carmelcop.cms.dto.MaritalStatusDTO;
 import com.carmelcop.cms.dto.PositionDTO;
+import com.carmelcop.cms.model.MaritalStatus;
 import com.carmelcop.cms.service.SetupsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +36,8 @@ public class SetupsController {
     }
 
     @PostMapping("/edit-position/{id}")
-    public ResponseEntity updatePosition(@PathVariable(name = "id") UUID id, @RequestBody PositionDTO positionDTO) {
+    public ResponseEntity updatePosition(@PathVariable(name = "id") UUID id,
+                                         @RequestBody PositionDTO positionDTO) {
         return setupsService.updatePosition(id, positionDTO);
     }
 
@@ -44,42 +47,79 @@ public class SetupsController {
     }
 
     @PostMapping("/edit-position-active/{id}")
-    public ResponseEntity setPositionActiveById(@PathVariable("id") UUID id, @RequestParam(name = "active") boolean active) {
+    public ResponseEntity setPositionActiveById(@PathVariable("id") UUID id,
+                                                @RequestParam(name = "active") boolean active) {
         return setupsService.setPositionActiveById(id, active);
     }
-
 
 
     //GENDER SETUP
 
     @GetMapping("/get-genders")
-    public List<GenderDTO> getAllGenders(){
-       return  setupsService.getAllGenders();
+    public List<GenderDTO> getAllGenders() {
+        return setupsService.getAllGenders();
     }
 
     @PostMapping("save-gender")
-    public ResponseEntity saveGender(@RequestBody GenderDTO genderDTO){
+    public ResponseEntity saveGender(@RequestBody GenderDTO genderDTO) {
         return setupsService.saveGender(genderDTO);
     }
 
     @GetMapping("get-active-genders")
-    public List<GenderDTO> getAllActiveGenders(){
+    public List<GenderDTO> getAllActiveGenders() {
         return setupsService.getActiveGenders();
     }
 
     @PostMapping("/edit-gender/{id}")
-    public ResponseEntity updateGender(@PathVariable("id") UUID id, @RequestBody GenderDTO genderDTO){
+    public ResponseEntity updateGender(@PathVariable("id") UUID id,
+                                       @RequestBody GenderDTO genderDTO) {
         return setupsService.updateGender(id, genderDTO);
     }
 
     @GetMapping("/get-gender/{id}")
-    public ResponseEntity getGenderById(@PathVariable("id") UUID id){
+    public ResponseEntity getGenderById(@PathVariable("id") UUID id) {
         return setupsService.getGenderById(id);
     }
 
     @PostMapping("edit-gender-active/{id}")
-    public ResponseEntity setGenderActiveById(@PathVariable(name = "id") UUID id, @RequestParam(name = "active") boolean active){
+    public ResponseEntity setGenderActiveById(@PathVariable(name = "id") UUID id,
+                                              @RequestParam(name = "active") boolean active) {
         return setupsService.setGenderActiveById(id, active);
+    }
+
+
+    //MARITAL STATUS SETUP
+
+    @PostMapping("/save-marital-status")
+    public ResponseEntity saveMaritalStatus(@RequestBody MaritalStatusDTO maritalStatusDTO) {
+        return setupsService.saveMaritalStatus(maritalStatusDTO);
+    }
+
+    @GetMapping("/get-marital-statuses")
+    public List<MaritalStatusDTO> getAllMaritalStatuses() {
+        return setupsService.getAllMaritalStatuses();
+    }
+
+    @PostMapping("/edit-marital-status/{id}")
+    public ResponseEntity updateMaritalStatus(@PathVariable(name = "id") UUID id,
+                                              @RequestBody MaritalStatusDTO maritalStatusDTO) {
+        return setupsService.updateMaritalStatus(id, maritalStatusDTO);
+    }
+
+    @GetMapping("/get-marital-status/{id}")
+    public ResponseEntity getMaritalStatusById(@PathVariable(name = "id") UUID id) {
+        return setupsService.getMaritalStatusById(id);
+    }
+
+    @GetMapping("/get-active-marital-statuses")
+    public List<MaritalStatusDTO> getActiveMaritalStatuses() {
+        return setupsService.getActiveMaritalStatuses();
+    }
+
+    @PostMapping("/edit-marital-status-active/{id}")
+    public ResponseEntity setMaritalStatusActiveById(@PathVariable(name = "id") UUID id,
+                                                     @RequestParam(name = "active") boolean active){
+        return setupsService.setMaritalStatusActiveById(id, active);
     }
 
 }

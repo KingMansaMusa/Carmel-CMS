@@ -1,6 +1,7 @@
 package com.carmelcop.cms.service;
 
 import com.carmelcop.cms.dto.GenderDTO;
+import com.carmelcop.cms.dto.MaritalStatusDTO;
 import com.carmelcop.cms.dto.PositionDTO;
 import org.springframework.http.ResponseEntity;
 
@@ -32,4 +33,20 @@ public interface SetupsService {
     ResponseEntity getGenderById(UUID id);
 
     ResponseEntity setGenderActiveById(UUID id, boolean active);
+
+
+
+    //MARITAL STATUS SETUP
+
+    ResponseEntity saveMaritalStatus(MaritalStatusDTO maritalStatusDTO);
+
+    List<MaritalStatusDTO> getAllMaritalStatuses();
+
+    ResponseEntity updateMaritalStatus(UUID id, MaritalStatusDTO maritalStatusDTO);
+
+    ResponseEntity getMaritalStatusById(UUID id);
+
+    List<MaritalStatusDTO> getActiveMaritalStatuses();
+
+    ResponseEntity setMaritalStatusActiveById(UUID id, boolean active);
 }
