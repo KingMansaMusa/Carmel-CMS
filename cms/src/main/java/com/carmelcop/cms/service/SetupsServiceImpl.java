@@ -9,7 +9,6 @@ import com.carmelcop.cms.model.Position;
 import com.carmelcop.cms.repository.GenderRepository;
 import com.carmelcop.cms.repository.MaritalStatusRepository;
 import com.carmelcop.cms.repository.PositionRepository;
-import com.fasterxml.jackson.databind.ser.std.RawSerializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
